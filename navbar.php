@@ -33,7 +33,7 @@ if($_SESSION["accessright"] == '2')//TEACHER
 {
 	?>
 <li> <a href = "index.php"> <span class = "fa fa-user"> </span> Students </a> </li>
-<li> <a href = "#!teacher_section"> <span class = "fa fa-home"> </span> Sections </a> </li>
+<li> <a href = "#!teacher_section"> <span class = "fa fa-home"> </span> Quizzes </a> </li>
 <li> <a href = "scores.php"> <span class = "fa fa-clipboard"> </span> Scores </a> </li>
 	<?php 
 }

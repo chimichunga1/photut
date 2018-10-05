@@ -105,6 +105,55 @@ echo"<script>window.location.href='admin_dashboard.php#!/Section_List';</script>
 
 
 
+if(isset($_POST['add_quiz']))
+{
+	$get_section_code = $_POST['get_section_code'];
+	$quiz_title = $_POST['quiz_title'];
+	$insert_quiz = "INSERT INTO quiz_table (`quiz_name`,`section_id`) VALUES ('".$quiz_title."','".$get_section_code."')";
+	$run_insert_quiz = mysqli_query($connect,$insert_quiz);
+echo '<script language="javascript">';
+echo 'alert("User Saved!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
+
+}
+
+
+if(isset($_POST['add_question']))
+{
+
+	$get_quiz_title = $_POST['get_quiz_title'];
+	$main_question = $_POST['main_question'];
+	$answer = $_POST['choice']; //radio button choice
+	$choice1 = $_POST['choice1'];
+	$choice2 = $_POST['choice2'];
+	$choice3 = $_POST['choice3'];
+	$choice4 = $_POST['choice4'];
+
+
+/*	echo $get_quiz_title;
+	echo'<br>';
+	echo $main_question;echo'<br>';
+	echo $answer; //radio button choiceecho'<br>';
+	echo $choice1;echo'<br>';
+	echo $choice2;echo'<br>';
+	echo $choice3;echo'<br>';
+	echo $choice4;echo'<br>';
+*/
+
+
+	$insert_question = "INSERT INTO question_table (`quiz_id`,`main_question`,`question_answer`,`choicea`,`choiceb`,`choicec`,`choiced`) VALUES ('".$get_quiz_title."','".$main_question."','".$answer."','".$choice1."','".$choice2."','".$choice3."','".$choice4."')";
+	$run_insert_question = mysqli_query($connect,$insert_question);
+
+
+/*echo '<script language="javascript">';
+echo 'alert("User Saved!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	*/
+
+}
+
+
 
 ?>
 

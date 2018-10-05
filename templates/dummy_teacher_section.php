@@ -26,11 +26,9 @@
 
   <?php     
   $teacher_id = $_SESSION['user_id'];
-  $table2 = "SELECT section_table.section_id,section_table.section_name,tag_prof_section_table.prof_id,quiz_table.quiz_name
-      FROM section_table
-      RIGHT JOIN tag_prof_section_table ON tag_prof_section_table.section_id=section_table.section_id 
-      RIGHT JOIN quiz_table ON quiz_table.section_id = section_table.section_id 
-      WHERE tag_prof_section_table.prof_id = '$teacher_id'";
+  $table2 = "SELECT section_table.section_id,section_table.section_name
+              FROM section_table
+              RIGHT JOIN tag_prof_section_table ON tag_prof_section_table.section_id=section_table.section_id WHERE tag_prof_section_table.prof_id = '$teacher_id'";
               $run_query2b = mysqli_query($connect,$table2);
 
       while($row = mysqli_fetch_array($run_query2b))
@@ -56,7 +54,7 @@
 <br>
 <br>
 
- <button type="submit" name="add_quiz" value="Create" class="btn btn-success">Create </button>
+ <button type="submit" name="add_question" value="Create" class="btn btn-success">Create </button>
 
 </form>
       </div>
@@ -81,13 +79,15 @@
 
 <form action="save_data.php" method="POST">
 
-  Quiz Title : 
+  Section Code : 
   <br>
-<select name="get_quiz_title">
+<select name="get_question">
 
   <?php     
   $teacher_id = $_SESSION['user_id'];
-  $table2 = "SELECT * FROM quiz_table";
+  $table2 = "SELECT section_table.section_id,section_table.section_name
+              FROM section_table
+              RIGHT JOIN tag_prof_section_table ON tag_prof_section_table.section_id=section_table.section_id WHERE tag_prof_section_table.prof_id = '$teacher_id'";
               $run_query2b = mysqli_query($connect,$table2);
 
       while($row = mysqli_fetch_array($run_query2b))
@@ -96,7 +96,7 @@
 
 
           ?>
-        <option value="<?php echo $row['quiz_id'];?>"><?php echo $row['quiz_name'];?></option>
+        <option value="<?php echo $row['section_id'];?>"><?php echo $row['section_name'];?></option>
         <?php 
 
 
@@ -108,22 +108,22 @@
 <br>
 Question
 <br>
-  <input type="text" class="form-control col-md-12" placeholder="Section Code" name="main_question" required>
+  <input type="text" class="form-control col-md-12" placeholder="Section Code" name="section_code" required>
 <br>
 Choice 1 : 
-<input type="radio" name="choice" value="a"><input type="text" class="form-control col-md-4" placeholder="Choice 1 " name="choice1" required>
+<input type="radio" name="choice" value="1"><input type="text" class="form-control col-md-4" placeholder="Choice 1 " name="choice1" required>
 
 <br>
 Choice 2 : 
-<input type="radio" name="choice" value="b"><input type="text" class="form-control col-md-4" placeholder="Choice 2 " name="choice2" required>
+<input type="radio" name="choice" value="2"><input type="text" class="form-control col-md-4" placeholder="Choice 2 " name="choice2" required>
 
 <br>
 Choice 3 : 
-<input type="radio" name="choice" value="c"><input type="text" class="form-control col-md-4" placeholder="Choice 3 " name="choice3" required>
+<input type="radio" name="choice" value="3"><input type="text" class="form-control col-md-4" placeholder="Choice 3 " name="choice3" required>
 
 <br>
 Choice 4 : 
-<input type="radio" name="choice" value="d"><input type="text" class="form-control col-md-4" placeholder="Choice 4 " name="choice4" required>
+<input type="radio" name="choice" value="4"><input type="text" class="form-control col-md-4" placeholder="Choice 4 " name="choice4" required>
 
 <br>
 <!-- <input type="radio" name="gender" value="female"> Female<br>
@@ -150,8 +150,8 @@ Choice 4 :
 <tr>
 <th>Section ID</th>
 <th>Section Code</th>
-<th> Quiz Name </th>
-<th> Actions</th>
+
+<th> Actions </th>
 
 </tr>
 </thead>
@@ -159,11 +159,9 @@ Choice 4 :
  
       <?php     
         $teacher_id = $_SESSION['user_id'];
-        $table2 = "SELECT section_table.section_id,section_table.section_name,tag_prof_section_table.prof_id,quiz_table.quiz_name
-                  FROM section_table
-                  RIGHT JOIN tag_prof_section_table ON tag_prof_section_table.section_id=section_table.section_id 
-                  RIGHT JOIN quiz_table ON quiz_table.section_id = section_table.section_id 
-                  WHERE tag_prof_section_table.prof_id = '$teacher_id'";
+        $table2 = "SELECT section_table.section_id,section_table.section_name
+                    FROM section_table
+                    RIGHT JOIN tag_prof_section_table ON tag_prof_section_table.section_id=section_table.section_id WHERE tag_prof_section_table.prof_id = '$teacher_id'";
                     $run_query2b = mysqli_query($connect,$table2);
 
             while($row = mysqli_fetch_array($run_query2b))
@@ -174,7 +172,6 @@ Choice 4 :
 
 <td><?php echo $row['section_id'];?></td>
 <td><?php echo $row['section_name'];?></td>
-<td><?php echo $row['quiz_name'];?></td>
 <td>View Questions</td>
   
 
