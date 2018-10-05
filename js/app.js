@@ -14,6 +14,21 @@ app.config(function($routeProvider) {
      .when("/teacher_section", {
         templateUrl : "templates/teacher_section.php"
     })   
+     .when("/student_lesson", {
+        templateUrl : "templates/student_lesson.php"
+    })  
+     
+     .when("/student_all_section", {
+        templateUrl : "templates/student_all_section.php"
+    })  
+
+     .when("/student_enrolled_section", {
+        templateUrl : "templates/student_enrolled_section.php"
+    })  
+
+     .when("/student_pending_section", {
+        templateUrl : "templates/student_pending_section.php"
+    })  
 
 
 
