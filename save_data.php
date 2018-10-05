@@ -146,10 +146,10 @@ if(isset($_POST['add_question']))
 	$run_insert_question = mysqli_query($connect,$insert_question);
 
 
-/*echo '<script language="javascript">';
+echo '<script language="javascript">';
 echo 'alert("User Saved!")';
 echo '</script>';
-echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	*/
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
 
 }
 
@@ -169,10 +169,10 @@ if(isset($_POST['enroll_student']))
 	$run_insert_student_tosection = mysqli_query($connect,$insert_student_tosection);
 
 
-/*echo '<script language="javascript">';
+echo '<script language="javascript">';
 echo 'alert("User Saved!")';
 echo '</script>';
-echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	*/
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
 
 }
 
@@ -192,10 +192,10 @@ if(isset($_POST['approve_student']))
 	$run_update_student_status = mysqli_query($connect,$update_student_status);
 
 
-/*echo '<script language="javascript">';
+echo '<script language="javascript">';
 echo 'alert("User Saved!")';
 echo '</script>';
-echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	*/
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
 
 
 
