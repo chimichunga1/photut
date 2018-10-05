@@ -1,0 +1,8 @@
+SELECT quiz_table.quiz_id,quiz_table.quiz_name,section_table.section_id,section_table.section_name,section_table.user_professor_name
+			FROM quiz_table
+			LEFT JOIN section_table ON quiz_table.section_id=section_table.section_id 
+			LEFT JOIN student_section_enroll ON section_table.section_id=student_section_enroll.section_id
+			WHERE student_section_enroll.student_id = 3 AND student_section_enroll.student_status=1
+			
+
+	TAMA BA TO HAHAHAHA

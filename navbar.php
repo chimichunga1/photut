@@ -32,7 +32,7 @@ if($_SESSION["accessright"] == '1')//ADMIN
 if($_SESSION["accessright"] == '2')//TEACHER
 {
 	?>
-<li> <a href = "index.php"> <span class = "fa fa-user"> </span> Students </a> </li>
+<li> <a href = "#!teacher_students"> <span class = "fa fa-user"> </span> Students </a> </li>
 <li> <a href = "#!teacher_section"> <span class = "fa fa-home"> </span> Quizzes </a> </li>
 <li> <a href = "scores.php"> <span class = "fa fa-clipboard"> </span> Scores </a> </li>
 	<?php 
@@ -48,7 +48,7 @@ if($_SESSION["accessright"] == '3')//STUDENT
 {
 	?>
     <li> <a href = "#!student_lesson"> <span class = "fa fa-book"> </span> Lessons </a> </li>
-    <li> <a href = "exams.php"> <span class = "fa fa-pencil-alt"> </span> Exams </a> </li>
+    <li> <a href = "#!exams"> <span class = "fa fa-pencil-alt"> </span> Exams </a> </li>
     <li> <a href = "results.php"> <span class = "fa fa-question"> </span> Results </a> </li>
 <!--     <li> <a href = "sections.php"> <span class = "fa fa-home"> </span> Sections </a> </li> -->
     <li class="dropdown">

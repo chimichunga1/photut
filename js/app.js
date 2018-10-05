@@ -30,6 +30,16 @@ app.config(function($routeProvider) {
         templateUrl : "templates/student_pending_section.php"
     })  
 
+     .when("/exams", {
+        templateUrl : "templates/student_exam.php"
+    })  
+     .when("/teacher_students", {
+        templateUrl : "templates/teacher_students.php"
+    })  
+     
+
+
+
 
 
      

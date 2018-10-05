@@ -155,5 +155,58 @@ echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</scri
 
 
 
+if(isset($_POST['enroll_student']))
+
+{
+
+
+
+         $section_id = $_POST['section_id'];
+         $user_id = $_POST['user_id'];
+         $status = '0'; // 0 = PENDING
+
+	$insert_student_tosection = "INSERT INTO student_section_enroll (`student_id`,`section_id`,`student_status`) VALUES ('".$user_id."','".$section_id."','".$status."')";
+	$run_insert_student_tosection = mysqli_query($connect,$insert_student_tosection);
+
+
+/*echo '<script language="javascript">';
+echo 'alert("User Saved!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	*/
+
+}
+
+
+
+if(isset($_POST['approve_student']))
+{
+
+
+
+	$section_id = $_POST['section_id'];
+	$user_id = $_POST['user_id'];
+	$status = '1'; // 1 = approve
+
+
+	$update_student_status = "UPDATE student_section_enroll SET student_status = '$status' WHERE student_id ='$user_id' AND section_id = '$section_id'";
+	$run_update_student_status = mysqli_query($connect,$update_student_status);
+
+
+/*echo '<script language="javascript">';
+echo 'alert("User Saved!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	*/
+
+
+
+
+
+
+
+
+}
+
+
+
 ?>
 

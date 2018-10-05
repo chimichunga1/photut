@@ -46,7 +46,7 @@ CREATE TABLE `quiz_table` (
   `quiz_name` varchar(255) NOT NULL,
   `section_id` varchar(255) NOT NULL,
   PRIMARY KEY (`quiz_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `quiz_table` */
 
@@ -81,9 +81,12 @@ CREATE TABLE `student_section_enroll` (
   `section_id` varchar(255) NOT NULL,
   `student_status` varchar(255) NOT NULL,
   PRIMARY KEY (`student_section_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `student_section_enroll` */
+
+insert  into `student_section_enroll`(`student_section_id`,`student_id`,`section_id`,`student_status`) values 
+(1,'3','10','1');
 
 /*Table structure for table `student_table` */
 
