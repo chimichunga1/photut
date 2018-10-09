@@ -170,13 +170,42 @@ if(isset($_POST['enroll_student']))
 
 
 echo '<script language="javascript">';
-echo 'alert("User Saved!")';
+echo 'alert("User Enrolled!")';
 echo '</script>';
-echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
+echo"<script>window.location.href='admin_dashboard.php#!/exam_list';</script>";	
 
 }
 
+if(isset($_POST['exam_student']))
 
+{
+
+
+
+         $_SESSION['section_id'] = $_POST['section_id'];
+     
+      
+
+
+
+
+echo"<script>window.location.href='admin_dashboard.php#!/exam_list';</script>";	
+
+}
+
+if(isset($_POST['take_quiz']))
+
+{
+
+
+
+		 $_SESSION['section_id'] = $_POST['section_id'];
+		 $_SESSION['quiz_id'] = $_POST['quiz_id'];
+
+
+echo"<script>window.location.href='admin_dashboard.php#!/exam_take_quiz';</script>";	
+
+}
 
 if(isset($_POST['approve_student']))
 {

@@ -37,10 +37,14 @@ app.config(function($routeProvider) {
         templateUrl : "templates/teacher_students.php"
     })  
      
+        .when("/exam_list", {
+            templateUrl: "templates/student_exam_list.php"
+        })
 
 
-
-
+        .when("/exam_take_quiz", {
+            templateUrl: "templates/student_exam_list_quiz.php"
+        }) 
 
      
 });
