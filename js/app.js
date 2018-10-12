@@ -45,6 +45,28 @@ app.config(function($routeProvider) {
         .when("/exam_take_quiz", {
             templateUrl: "templates/student_exam_list_quiz.php"
         }) 
-
+        .when("/result", {
+            templateUrl: "templates/student_result.php"
+        }) 
      
+            .when("/scores", {
+            templateUrl: "templates/teacher_result.php"
+        })
+        .when("/scores_quizzes", {
+            templateUrl: "templates/teacher_result_quiz.php"
+        })
+        .when("/scores_quizzes_view", {
+            templateUrl: "templates/teacher_result_quiz_view.php"
+        })
+   
+
+        .when("/scores_all", {
+            templateUrl: "templates/admin_result.php"
+        })
+        .when("/scores_all_quizzes", {
+            templateUrl: "templates/admin_result_quiz.php"
+        })
+        .when("/scores_all_quizzes_view", {
+            templateUrl: "templates/admin_result_quiz_view.php"
+        })
 });

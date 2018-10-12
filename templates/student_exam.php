@@ -23,9 +23,12 @@
 
 
 
+$uid=$_SESSION['user_id'];
 
-
-        $table2 = "SELECT * FROM section_table";
+        $table2 = "SELECT * FROM section_table s ";
+ $table2 .="inner join student_section_enroll sse ";
+ $table2 .="where sse.student_id='".$uid."' and sse.student_status='1' ";
+ $table2 .="group by  sse.section_id; ";
         $run_query2b = mysqli_query($connect,$table2);
 
             while($row = mysqli_fetch_array($run_query2b))
@@ -47,13 +50,13 @@
          <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'];?>">  
          
          <?php  $sid=$row['section_id'];
-            $uid=$_SESSION['user_id'];
+            
          
          
         
           $queryStatement = 'SELECT * FROM student_section_enroll where student_id="'.$uid.'" and section_id="'.$sid.'" ';
           $loadQuery = mysqli_query($connect,$queryStatement);
-          $resultQuery = mysqli_num_rows($loadQuery);
+
              $resultQueryFinished = mysqli_fetch_array($loadQuery);
           
 
@@ -62,9 +65,35 @@
        {
            ?>
 
-        <button type="submit" class="btn btn-primary" name="<?php echo ($resultQuery!=0)?'exam_student' : 'enroll_student'; ?>"> <i class="fa fa-edit"></i> 
-        <?php echo ($resultQuery!=0)?'EXAM' : 'ENROLL'; ?>
-        </button>
+       
+       
+
+
+            <?php 
+            // if($resultQueryFinished[3]==0)
+            // {
+            //          echo '<button type="submit" class="btn btn-primary" name="enroll_student"> <i class="fa fa-edit"></i>'; 
+            //         echo 'ENROLL';
+            //         echo '   </button>';
+            // }
+            // else if($resultQueryFinished[3]==1)
+            // {
+            //      echo '<button type="submit" class="btn btn-primary"  disabled> <i class="fa fa-edit"></i>'; 
+                    
+            //         echo 'PENDING';
+            //         echo '   </button>';
+            // }
+            // else
+            // {
+                 echo '<button type="submit" class="btn btn-primary btn-block" name="exam_student"> <i class="fa fa-edit"></i>'; 
+                    
+                    echo 'EXAM';
+                    echo '   </button>';
+            // }
+            
+    
+             ?>
+     
 
         
            <?php
@@ -72,7 +101,7 @@
        else
        {
            ?>
-           <button  class="btn btn-success" disabled> <i class="fa fa-check"></i> Finished</button>
+           <button  class="btn btn-success btn-block" disabled> <i class="fa fa-check"></i> Finished</button>
            <?php
        }
          ?>
