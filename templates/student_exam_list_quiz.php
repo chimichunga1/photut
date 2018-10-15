@@ -1,4 +1,28 @@
+<style>
 
+
+/* Hide the browser's default radio button */
+
+
+/* Customize the label (the container) */
+
+
+/* Hide the browser's default radio button */
+
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: lightblue;
+  border-radius: 50%;
+}
+
+
+</style>
 
         <?php require_once('../connection.php'); ?>
 <?php require_once('dataTables.php'); ?>
@@ -12,7 +36,7 @@
 <thead>
 <tr>
 
-<th>question</th>
+<th style="display:none;"></th>
 
 
 </tr>
@@ -50,24 +74,24 @@ var rightInputs=[];
 <tr>
 
             <td class="row ">
-            <div class="col-md-12" style="padding:5%;width:100%">
-            <?php echo $row['main_question']?>
+            <div class="col-md-12" style="padding:5%;width:100%;font-size:30px;"><strong>
+            <?php echo  $counter.'.) '. $row['main_question']?></strong>
             </div>
             <div class="col-md-12">
-            <input type="radio" required value="<?php echo $row['choicea']?>" name="<?php echo 'quiz'.$counter; ?>" class="getAnswer"> <?php echo $row['choicea']?></button>
+            <input type="radio" required value="<?php echo $row['choicea']?>" name="<?php echo 'quiz'.$counter; ?>" class="getAnswer checkmark"> <span style="font-size:20px;padding-left:20px;"><?php echo $row['choicea']?></span>
             </div>
              <div class="col-md-12">
-            <input type="radio" required value="<?php echo  $row['choiceb']?>"  name="<?php echo 'quiz'.$counter; ?>" class="getAnswer"><?php echo $row['choiceb']?></button>
+            <input type="radio" required value="<?php echo  $row['choiceb']?>"  name="<?php echo 'quiz'.$counter; ?>" class="getAnswer checkmark"><span style="font-size:20px;padding-left:20px;"><?php echo $row['choiceb']?></span>
             </div>
              <div class="col-md-12">
-            <input type="radio" required value="<?php echo  $row['choicec']?>"  name="<?php echo 'quiz'.$counter; ?>" class="getAnswer"><?php echo $row['choicec']?></button>
+            <input type="radio" required value="<?php echo  $row['choicec']?>"  name="<?php echo 'quiz'.$counter; ?>" class="getAnswer checkmark"><span style="font-size:20px;padding-left:20px;"><?php echo $row['choicec']?></span>
             </div>
            <div class="col-md-12">
-            <input type="radio" required value="<?php echo  $row['choiced']?>"  name="<?php echo 'quiz'.$counter; ?>" class="getAnswer"><?php echo $row['choiced']?></button>
+            <input type="radio" required value="<?php echo  $row['choiced']?>"  name="<?php echo 'quiz'.$counter; ?>" class="getAnswer checkmark"><span style="font-size:20px;padding-left:20px;"><?php echo $row['choiced']?></span>
             </div>
 
 
-            
+  
             
             </td>
             
@@ -91,7 +115,7 @@ var rightInputs=[];
 ?>      
 
 
-<button type="submit">save</button>
+<button style="position:fixed;right:20px;bottom:20px;z-index:9999" class="btn btn-primary " type="submit">SAVE</button>
 </form>
 
 

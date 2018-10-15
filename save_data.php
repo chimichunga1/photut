@@ -170,9 +170,9 @@ if(isset($_POST['enroll_student']))
 
 
 echo '<script language="javascript">';
-echo 'alert("User Enrolled!")';
+echo 'alert("Waiting for Approval")';
 echo '</script>';
-echo"<script>window.location.href='admin_dashboard.php#!/exam_list';</script>";	
+echo"<script>window.location.href='admin_dashboard.php#!/exams';</script>";	
 
 }
 
@@ -192,6 +192,59 @@ if(isset($_POST['exam_student']))
 echo"<script>window.location.href='admin_dashboard.php#!/exam_list';</script>";	
 
 }
+if(isset($_POST['teacher_quiz_score']))
+
+{
+
+
+
+         $_SESSION['section_id'] = $_POST['section_id'];
+     
+    
+
+echo"<script>window.location.href='teacher_dashboard.php#!/scores_quizzes';</script>";	
+
+}
+if(isset($_POST['teacher_quiz_score_view']))
+
+{
+
+
+
+         $_SESSION['quiz_id'] = $_POST['quiz_id'];
+     
+    
+
+echo"<script>window.location.href='teacher_dashboard.php#!/scores_quizzes_view';</script>";	
+
+}
+if(isset($_POST['admin_quiz_score']))
+
+{
+
+
+
+         $_SESSION['section_id'] = $_POST['section_id'];
+     
+    
+
+echo"<script>window.location.href='admin_dashboard.php#!/scores_all_quizzes';</script>";	
+
+}
+if(isset($_POST['admin_quiz_score_view']))
+
+{
+
+
+
+         $_SESSION['quiz_id'] = $_POST['quiz_id'];
+     
+    
+
+echo"<script>window.location.href='admin_dashboard.php#!/scores_all_quizzes_view';</script>";	
+
+}
+
 
 if(isset($_POST['take_quiz']))
 

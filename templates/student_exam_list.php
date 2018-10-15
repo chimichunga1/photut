@@ -57,14 +57,14 @@
              <form method="POST" action="save_data.php">
         <input type="hidden" name="section_id" value="<?php echo $row['section_id'];?>">
          <input type="hidden" name="quiz_id" value="<?php echo $row['quiz_id'];?>">  
-          <button type="submit" class="btn btn-primary" name="take_quiz"> <i class="fa fa-edit"></i> TAKE</button>
+          <button type="submit" class="btn btn-primary btn-block" name="take_quiz"> <i class="fa fa-edit"></i> TAKE</button>
                  </form>
           <?php 
     }
     else
     {
         ?>
-           <button  class="btn btn-success" disabled> <i class="fa fa-check"></i> Finished</button>
+           <button  class="btn btn-success btn-block" disabled> <i class="fa fa-check"></i> Finished</button>
        
            <?php
     }
