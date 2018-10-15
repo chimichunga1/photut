@@ -12,7 +12,7 @@
 
 <th>Section Name </th>
 
-<th> Actions </th>
+<th> Exams </th>
 
 </tr>
 </thead>

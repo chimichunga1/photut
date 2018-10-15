@@ -71,7 +71,7 @@ if($_SESSION["accessright"] == '3')//STUDENT
 
 </ul>
 <ul class="nav navbar-nav navbar-right">
-    <li> <a href = "settings.php"> <span class = "fa fa-cog"></span> Settings </a> </li>
+
     <li> <a href = "signout.php"> <span class = "fa fa-sign-out-alt"></span> Sign out </a> </li>
 </ul>
 </div>
