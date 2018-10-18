@@ -8,7 +8,7 @@
             <ul class = "list-group">
             <li class = "list-group-item"> <a href = "user_dashboard.php?lesson_number=1"> Lesson 1: ADOBE PHOTOSHOP CS6 NAVIGATIONS </a></li>
             <ul class = "list-group">
-            <li class = "list-group-item"><a href = "#BriefHistory">Brief History</a></li>
+            <li class = "list-group-item"><a href = "#!student_lesson/BriefHistory">Brief History</a></li>
             <li class = "list-group-item"><a href = "#Starting_Adobe_Photoshop_CS6">Starting Adobe Photoshop CS6</a></li>
             <li class = "list-group-item"><a href = "#The_Photoshop_Workspace">The Photoshop Workspace</a></li>
             <li class = "list-group-item"><a href = "#Customizing_your_Workspace_by_using_the_Workspace_Switcher">Customizing your Workspace by using the Workspace Switcher</a></li>
@@ -142,7 +142,7 @@
     Adobe Photoshop’s newest release CS6 is no exception to the venerable rule of Adobe quality. It comes with numerous new tools and features that make your graphics work quicker and easier, streamlining the entire process and while still allowing you to develop amazing pictures.
 <hr>
 </p>
-<h3 class = 'text-primary' id="BriefHistory"> Brief History </h3></a>
+<h3 class = 'text-primary' id="student_lesson/BriefHistory"> Brief History </h3></a>
 <p class = "text-justify">
 
         <center><img src="assets/img/ph1.jpg" width ="280" height ="150">

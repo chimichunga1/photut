@@ -159,12 +159,28 @@ if(isset($_POST['enroll_student']))
 
 {
 
-
-
          $section_id = $_POST['section_id'];
          $user_id = $_POST['user_id'];
          $status = '0'; // 0 = PENDING
 
+	$row=mysqli_query($connect,'SELECT * From `student_section_enroll` WHERE `student_id`="'.$user_id.'" AND `section_id`="'.$section_id.'"');
+
+	$search= mysqli_fetch_assoc($row);
+
+	if(!empty($search))
+
+		{
+
+echo '<script language="javascript">';
+echo 'alert("You are already enrolled to this section!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/exams';</script>";	
+		}
+
+
+else
+{
+	
 	$insert_student_tosection = "INSERT INTO student_section_enroll (`student_id`,`section_id`,`student_status`) VALUES ('".$user_id."','".$section_id."','".$status."')";
 	$run_insert_student_tosection = mysqli_query($connect,$insert_student_tosection);
 
@@ -173,6 +189,8 @@ echo '<script language="javascript">';
 echo 'alert("Waiting for Approval")';
 echo '</script>';
 echo"<script>window.location.href='admin_dashboard.php#!/exams';</script>";	
+}
+
 
 }
 

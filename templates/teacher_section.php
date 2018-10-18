@@ -26,10 +26,10 @@
 
   <?php     
   $teacher_id = $_SESSION['user_id'];
-  $table2 = "SELECT section_table.section_id,section_table.section_name,tag_prof_section_table.prof_id,quiz_table.quiz_name
+  $table2 = "SELECT section_table.section_id,section_table.section_name,tag_prof_section_table.prof_id
       FROM section_table
       RIGHT JOIN tag_prof_section_table ON tag_prof_section_table.section_id=section_table.section_id 
-      RIGHT JOIN quiz_table ON quiz_table.section_id = section_table.section_id 
+
       WHERE tag_prof_section_table.prof_id = '$teacher_id'";
               $run_query2b = mysqli_query($connect,$table2);
 
@@ -159,7 +159,7 @@ Choice 4 :
  
       <?php     
         $teacher_id = $_SESSION['user_id'];
-        $table2 = "SELECT section_table.section_id,section_table.section_name,tag_prof_section_table.prof_id,quiz_table.quiz_name
+        $table2 = "SELECT section_table.section_id,section_table.section_name,tag_prof_section_table.prof_id,quiz_table.quiz_name,quiz_table.quiz_id
                   FROM section_table
                   RIGHT JOIN tag_prof_section_table ON tag_prof_section_table.section_id=section_table.section_id 
                   RIGHT JOIN quiz_table ON quiz_table.section_id = section_table.section_id 
@@ -169,24 +169,92 @@ Choice 4 :
             while($row = mysqli_fetch_array($run_query2b))
 
         {
+            $Mymodal="Mymodal".$row['quiz_id'];
 ?>
    <tr>
 
 <td><?php echo $row['section_id'];?></td>
 <td><?php echo $row['section_name'];?></td>
 <td><?php echo $row['quiz_name'];?></td>
-<td>View Questions</td>
+<td><?php echo'<button class="btn btn-primary" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="fa fa-eye"></i> View Questions</button> ';?></td>
   
 
   </tr>
-
+    </tbody>
+</table>
     <?php 
+echo
+"
+    
+ 
+    <div id='".$Mymodal."' class='modal fade'>
+        <div class='modal-dialog modal-lg'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title'>QUESTIONS</h4>
+                </div>
+                <div class='modal-body'>
+                 
+";
 
+?>
+
+
+<br>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Question</th>
+    <th>Choice 1</th>
+    <th>Choice 2</th>
+    <th>Choice 3</th>
+    <th>Choice 4</th>
+    <th>Answer</th>
+
+  </tr>
+
+<?php 
+        $quiz_id = $row['quiz_id'];
+        $table2 = "SELECT * FROM question_table WHERE quiz_id = '$quiz_id'";
+                    $run_query2b = mysqli_query($connect,$table2);
+
+            while($row = mysqli_fetch_array($run_query2b))
+
+        {
+
+?>
+  <tr>
+    <td><?php echo $row['main_question'];?></td>
+    <td><?php echo $row['choicea'];?></td>
+    <td><?php echo $row['choiceb'];?></td>
+    <td><?php echo $row['choicec'];?></td>
+    <td><?php echo $row['choiced'];?></td>
+    <td><?php echo $row['question_answer'];?></td>
+  
+  </tr>
+
+  <?php 
+
+      }
+
+  ?>
+</table>
+
+
+<?php
+
+
+echo"
+                </div>
+            </div>
+        </div>
+    </div>
+";
     }
 
   ?>
-    </tbody>
-</table>
+
 
 
 
