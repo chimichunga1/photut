@@ -30,7 +30,7 @@ echo '</script>';
 	else
 	{
 
-			 $insert_user = "INSERT INTO user_accounts (`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`AccessRight`) VALUES ('".$fname."','".$lname."','".$username."','".$password."','0','0','3') ";
+			 $insert_user = "INSERT INTO user_accounts (`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`AccessRight`,`avatar_img`) VALUES ('".$fname."','".$lname."','".$username."','".$password."','0','0','3','assets/avatar.jpg') ";
 			$run_insert_user = mysqli_query($connect,$insert_user);
 
 

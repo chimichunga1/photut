@@ -1,3 +1,22 @@
+
+<?php 
+
+
+  $get_avatar =mysqli_query($connect,'SELECT * From `user_accounts` WHERE `username`="'.$_SESSION['username'].'" AND `isDeleted`="0" ');
+ 
+
+        while($row_avatar = mysqli_fetch_array($get_avatar))
+
+    {
+
+
+      $get_avatar = $row_avatar['avatar_img'];
+
+    }
+
+
+?>
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
 <div class="navbar-header">
@@ -47,16 +66,16 @@ if($_SESSION["accessright"] == '2')//TEACHER
 if($_SESSION["accessright"] == '3')//STUDENT
 {
 	?>
-    <li> <a href = "#!student_lesson"> <span class = "fa fa-book"> </span> Lessons </a> </li>
-    <li> <a href = "#!exams"> <span class = "fa fa-pencil-alt"> </span> Exams </a> </li>
-    <li> <a href = "#!result"> <span class = "fa fa-question"> </span> Results </a> </li>
+    <li> <a href = "student_lesson.php"> <span class = "fa fa-book"> </span> Lessons </a> </li>
+    <li> <a href = "user_dashboard.php#!/exams"> <span class = "fa fa-pencil-alt"> </span> Exams </a> </li>
+    <li> <a href = "user_dashboard.php#!/result"> <span class = "fa fa-question"> </span> Results </a> </li>
 <!--     <li> <a href = "sections.php"> <span class = "fa fa-home"> </span> Sections </a> </li> -->
     <li class="dropdown">
   <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class = "fa fa-home"> </span> Sections <span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><a href="#!student_all_section">View All Sections</a></li>
-    <li><a href="#!student_enrolled_section">View Enrolled Sections</a></li>
-    <li><a href="#!student_pending_section">View Pending Sections</a></li>
+    <li><a href="user_dashboard.php#!/student_all_section">View All Sections</a></li>
+    <li><a href="user_dashboard.php#!/student_enrolled_section">View Enrolled Sections</a></li>
+    <li><a href="user_dashboard.php#!/student_pending_section">View Pending Sections</a></li>
 
 
   </ul>
@@ -71,8 +90,17 @@ if($_SESSION["accessright"] == '3')//STUDENT
 
 </ul>
 <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img src="<?php echo $get_avatar; ?> " style="height: 24px; border-radius: 5px;" >  Welcome, <?php echo $_SESSION['username']; ?> <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+<li> <a href = "user_dashboard.php#!/student_profile"> View Profile </a> </li>
 
-    <li> <a href = "signout.php"> <span class = "fa fa-sign-out-alt"></span> Sign out </a> </li>
+
+  </ul>
+</li>
+
+
+    <li> <a href = "signout.php"> <span class = "fa fa-sign-out-alt"></span>Sign out </a> </li>
 </ul>
 </div>
 </div>

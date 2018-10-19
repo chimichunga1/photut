@@ -22,15 +22,17 @@
         
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-    <!-- 
+<!--                     <li> <a href="" data-toggle="modal" data-target="#signin"> <span class = "fa fa-sign-in-alt"></span> Sign in </a> </li>
                     <li> <a href="" data-toggle="modal" data-target="#create"> <span class = "fa fa-pencil-alt"></span> Create Account </a> </li> -->
                 </ul>
             </div>
         </div>
     </nav>
-<body style="background: url('assets/index_background.jpg') no-repeat fixed center; ">
 
 <br><br><br>
+<body style="background: url('assets/index_background.jpg') no-repeat fixed center; ">
+    
+    
 
 <div class="col-md-offset-8 col-md-4">
 
@@ -48,22 +50,18 @@
               <label id="basic-addon1">Password</label>
               <input type="password" class="form-control" placeholder="Password..." aria-describedby="basic-addon1" name="password" required=""> 
 <br><br>
-        <button type="submit" class="btn btn-primary col-md-12 col-sm-12" name="account_login_student"><center>Login</center></button>
+        <button type="submit" class="btn btn-primary col-md-12 col-sm-12" name="account_login"><center>Login</center></button>
   <br><br>
-        <a class="btn btn-primary col-md-12 col-sm-12" data-toggle="modal" data-target="#create"><center>Sign Up</center></a>      
+<!--         <a class="btn btn-primary col-md-12 col-sm-12" data-toggle="modal" data-target="#create"><center>Sign Up</center></a>       -->
 </form>
       </div>
 
 </div>
 
 </div>
-
-
-
-
-
-
 </body>
+
+
 
 
 
@@ -94,7 +92,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" name="account_login_student">Login</button>
+        <button type="submit" class="btn btn-success" name="account_login">Login</button>
       </div>
     </form>
     </div>

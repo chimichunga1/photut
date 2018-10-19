@@ -40,7 +40,43 @@ if(isset($_POST['add_section']))
 {
 
 
+
+
+
+
+
+
+
+
 $section_code = $_POST['section_code'];
+
+
+	$row=mysqli_query($connect,'SELECT * From `section_table` WHERE `section_name`="'.$section_code.'"');
+
+	$search= mysqli_fetch_assoc($row);
+	if(!empty($search))
+	{
+
+echo '<script language="javascript">';
+echo 'alert("This section is already saved!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 $insert_user = "INSERT INTO section_table (`section_name`,`user_professor_name`,`user_id`) VALUES ('".$section_code."','N/A','0') ";
 $run_insert_user = mysqli_query($connect,$insert_user);
 echo '<script language="javascript">';
@@ -107,14 +143,48 @@ echo"<script>window.location.href='admin_dashboard.php#!/Section_List';</script>
 
 if(isset($_POST['add_quiz']))
 {
+
+
 	$get_section_code = $_POST['get_section_code'];
 	$quiz_title = $_POST['quiz_title'];
+
+	$row=mysqli_query($connect,'SELECT * From `quiz_table` WHERE `quiz_name`="'.$quiz_title.'"');
+
+	$search= mysqli_fetch_assoc($row);
+	if(!empty($search))
+	{
+
+echo '<script language="javascript">';
+echo 'alert("Quiz title is already saved!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
+
+
+	}
+
+
+
+
+else
+{
 	$insert_quiz = "INSERT INTO quiz_table (`quiz_name`,`section_id`) VALUES ('".$quiz_title."','".$get_section_code."')";
 	$run_insert_quiz = mysqli_query($connect,$insert_quiz);
 echo '<script language="javascript">';
 echo 'alert("User Saved!")';
 echo '</script>';
 echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</script>";	
+
+
+
+
+
+}
+
+
+
+
+
+
 
 }
 
@@ -163,35 +233,49 @@ if(isset($_POST['enroll_student']))
          $user_id = $_POST['user_id'];
          $status = '0'; // 0 = PENDING
 
+	$row_count=mysqli_query($connect,'SELECT COUNT( *) From `student_section_enroll` WHERE `section_id`="'.$section_id.'"');
+
+	$search_count= mysqli_fetch_assoc($row_count);
+
+	if(array_sum($search_count) == '50')
+{
+echo '<script language="javascript">';
+echo 'alert("This section already has 50 students!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/student_all_section';</script>";	
+}
+else
+{
+
 	$row=mysqli_query($connect,'SELECT * From `student_section_enroll` WHERE `student_id`="'.$user_id.'" AND `section_id`="'.$section_id.'"');
 
 	$search= mysqli_fetch_assoc($row);
 
-	if(!empty($search))
+		if(!empty($search))
 
-		{
+			{
 
-echo '<script language="javascript">';
-echo 'alert("You are already enrolled to this section!")';
-echo '</script>';
-echo"<script>window.location.href='admin_dashboard.php#!/exams';</script>";	
-		}
-
-
-else
-{
-	
-	$insert_student_tosection = "INSERT INTO student_section_enroll (`student_id`,`section_id`,`student_status`) VALUES ('".$user_id."','".$section_id."','".$status."')";
-	$run_insert_student_tosection = mysqli_query($connect,$insert_student_tosection);
+	echo '<script language="javascript">';
+	echo 'alert("You are already enrolled to this section!")';
+	echo '</script>';
+	echo"<script>window.location.href='admin_dashboard.php#!/student_all_section';</script>";	
+			}
 
 
-echo '<script language="javascript">';
-echo 'alert("Waiting for Approval")';
-echo '</script>';
-echo"<script>window.location.href='admin_dashboard.php#!/exams';</script>";	
+	else
+	{
+		
+		$insert_student_tosection = "INSERT INTO student_section_enroll (`student_id`,`section_id`,`student_status`) VALUES ('".$user_id."','".$section_id."','".$status."')";
+		$run_insert_student_tosection = mysqli_query($connect,$insert_student_tosection);
+
+
+	echo '<script language="javascript">';
+	echo 'alert("Waiting for Approval")';
+	echo '</script>';
+	echo"<script>window.location.href='admin_dashboard.php#!/exams';</script>";	
+	}
+
 }
-
-
 }
 
 if(isset($_POST['exam_student']))
