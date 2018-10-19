@@ -35,7 +35,7 @@ CREATE TABLE `question_table` (
 /*Data for the table `question_table` */
 
 insert  into `question_table`(`question_id`,`quiz_id`,`main_question`,`question_answer`,`choicea`,`choiceb`,`choicec`,`choiced`) values 
-(1,'2','test1','b','a','b','c','d');
+(1,'1','test1t1t','d','asd','ad','aw','d');
 
 /*Table structure for table `quiz_table` */
 
@@ -46,12 +46,31 @@ CREATE TABLE `quiz_table` (
   `quiz_name` varchar(255) NOT NULL,
   `section_id` varchar(255) NOT NULL,
   PRIMARY KEY (`quiz_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `quiz_table` */
 
 insert  into `quiz_table`(`quiz_id`,`quiz_name`,`section_id`) values 
-(2,'test1','9');
+(1,'test1','1');
+
+/*Table structure for table `result_table` */
+
+DROP TABLE IF EXISTS `result_table`;
+
+CREATE TABLE `result_table` (
+  `Result_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Student_ID` int(11) DEFAULT NULL,
+  `Section_ID` int(11) DEFAULT NULL,
+  `Quiz_ID` int(11) DEFAULT NULL,
+  `Score` int(11) DEFAULT NULL,
+  `Over` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Result_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `result_table` */
+
+insert  into `result_table`(`Result_ID`,`Student_ID`,`Section_ID`,`Quiz_ID`,`Score`,`Over`) values 
+(1,3,1,1,0,1);
 
 /*Table structure for table `section_table` */
 
@@ -63,13 +82,12 @@ CREATE TABLE `section_table` (
   `user_professor_name` varchar(255) NOT NULL,
   `user_id` varchar(255) NOT NULL,
   PRIMARY KEY (`section_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `section_table` */
 
 insert  into `section_table`(`section_id`,`section_name`,`user_professor_name`,`user_id`) values 
-(9,'CEIT101A','teacher','4'),
-(10,'ceat123','N/A','0');
+(1,'CEIT101A','N/A','0');
 
 /*Table structure for table `student_section_enroll` */
 
@@ -80,13 +98,14 @@ CREATE TABLE `student_section_enroll` (
   `student_id` varchar(255) NOT NULL,
   `section_id` varchar(255) NOT NULL,
   `student_status` varchar(255) NOT NULL,
+  `isFinished` int(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`student_section_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `student_section_enroll` */
 
-insert  into `student_section_enroll`(`student_section_id`,`student_id`,`section_id`,`student_status`) values 
-(1,'3','10','1');
+insert  into `student_section_enroll`(`student_section_id`,`student_id`,`section_id`,`student_status`,`isFinished`) values 
+(7,'3','1','0',0);
 
 /*Table structure for table `student_table` */
 
@@ -100,9 +119,8 @@ CREATE TABLE `student_table` (
 /*Data for the table `student_table` */
 
 insert  into `student_table`(`user_id`,`section_id`) values 
-('3','1'),
-('12','0'),
-('13','0');
+('3','0'),
+('16','0');
 
 /*Table structure for table `tag_prof_section_table` */
 
@@ -113,15 +131,12 @@ CREATE TABLE `tag_prof_section_table` (
   `section_id` varchar(255) NOT NULL,
   `prof_id` varchar(255) NOT NULL,
   PRIMARY KEY (`prof_section_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tag_prof_section_table` */
 
 insert  into `tag_prof_section_table`(`prof_section_id`,`section_id`,`prof_id`) values 
-(1,'9','11'),
-(3,'9','4'),
-(4,'10','4'),
-(5,'10','11');
+(1,'1','4');
 
 /*Table structure for table `teacher_table` */
 
@@ -132,14 +147,12 @@ CREATE TABLE `teacher_table` (
   `user_id` varchar(255) NOT NULL,
   `isAssigned` varchar(255) NOT NULL,
   PRIMARY KEY (`teacher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `teacher_table` */
 
 insert  into `teacher_table`(`teacher_id`,`user_id`,`isAssigned`) values 
-(1,'4','0'),
-(2,'6','1'),
-(6,'11','0');
+(1,'4','0');
 
 /*Table structure for table `user_accounts` */
 
@@ -153,17 +166,18 @@ CREATE TABLE `user_accounts` (
   `password` varchar(255) NOT NULL,
   `isDeleted` varchar(255) NOT NULL,
   `isActive` varchar(255) DEFAULT NULL,
+  `avatar_img` varchar(255) NOT NULL,
   `AccessRight` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_accounts` */
 
-insert  into `user_accounts`(`user_id`,`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`AccessRight`) values 
-(1,'admin','admina','admin','admin','0',NULL,'1'),
-(3,'1','2','user','user','0','0','3'),
-(4,'asd','asd','teacher','teacher','0','0','2'),
-(11,'test','test','newteacher','123','0','0','2');
+insert  into `user_accounts`(`user_id`,`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`avatar_img`,`AccessRight`) values 
+(1,'admin','admina','admin','admin','0','0','','1'),
+(3,'1','2','user','user','0','0','','3'),
+(4,'asd','asd','teacher','teacher','0','0','','2'),
+(16,'asdas','dasdasd','test','1234','0','0','assets/avatar.jpg','3');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
