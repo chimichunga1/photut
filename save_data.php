@@ -8,7 +8,7 @@ $fname = $_POST['firstname'];
 $lname = $_POST['lastname'];
 $username = $_POST['username'];
 $password = $_POST['password'];
-$insert_user = "INSERT INTO user_accounts (`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`AccessRight`) VALUES ('".$fname."','".$lname."','".$username."','".$password."','0','0','2') ";
+$insert_user = "INSERT INTO user_accounts (`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`AccessRight`,`avatar_img`) VALUES ('".$fname."','".$lname."','".$username."','".$password."','0','0','2','assets/avatar.jpg') ";
 $run_insert_user = mysqli_query($connect,$insert_user);
 
 	$get_prof_id = "SELECT * FROM user_accounts WHERE username = '$username'";

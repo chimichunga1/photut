@@ -174,9 +174,9 @@ CREATE TABLE `user_accounts` (
 /*Data for the table `user_accounts` */
 
 insert  into `user_accounts`(`user_id`,`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`avatar_img`,`AccessRight`) values 
-(1,'admin','admina','admin','admin','0','0','','1'),
-(3,'1','2','user','user','0','0','','3'),
-(4,'asd','asd','teacher','teacher','0','0','','2'),
+(1,'admin','admina','admin','admin','0','0','assets/avatar.jpg','1'),
+(3,'1','2','user','user','0','0','assets/avatar.jpg','3'),
+(4,'asd','asd','teacher','teacher','0','0','assets/avatar.jpg','2'),
 (16,'asdas','dasdasd','test','1234','0','0','assets/avatar.jpg','3');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
