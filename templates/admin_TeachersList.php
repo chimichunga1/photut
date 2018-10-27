@@ -73,7 +73,8 @@ Password :
 
 
         	$get_event = $row["user_id"];
-        	
+$category_viewmodal="category_viewmodal".$row['user_id'];
+  	
         	?>
 <tr>
             <td><?php echo $row['user_id'];?></td>
@@ -87,10 +88,83 @@ Password :
                 <a class = "dropdown-toggle" type="button" data-toggle="dropdown" href = ""> Options
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li> <a href = "" data-toggle = "modal" data-target = "#view_sections"> View Sections </a> </li>
+                    
+                
+<?php
+    echo '
+
+<li><a href = "" data-toggle="modal" data-target="#'.$category_viewmodal.'"> View Sections </a> </li>
+   ';
+
+?>
+
                 </ul>
                 </div>
             </td>
+
+            <?php
+
+echo
+"
+    
+    <!-- Modal HTML -->
+    <div id='".$category_viewmodal."' class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title'>SECTIONS TAGGED </h4>
+                </div>
+                <div class='modal-body'>
+                 
+ <form  role='form' action='save_data.php' method='post' >
+
+    <div class='form-group'>
+    ";?>
+<div class="col-md-8">
+  <h4><b>
+<?php
+$get_userid = $row['user_id'];
+$table2_ordered = "SELECT * FROM tag_prof_section_table 
+RIGHT JOIN section_table on tag_prof_section_table.section_id = section_table.section_id
+WHERE tag_prof_section_table.prof_id = '$get_userid'";
+
+
+
+$run_ordered = mysqli_query($connect,$table2_ordered);
+
+while($row_ordered = mysqli_fetch_array($run_ordered))
+
+
+{
+
+echo $row_ordered['section_name'];
+
+
+}
+
+
+?>
+</b></h4>
+</div>
+
+<br>
+<br>
+    <?php
+echo
+"    </div>
+                </div>
+                <div class='modal-footer'>
+
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+";
+
+
+             ?>
 </tr>
 
 

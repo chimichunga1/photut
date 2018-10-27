@@ -14,7 +14,7 @@
 <th> Username </th>
 <th> Password </th>
 
-<th> Actions </th>
+<!-- <th> Actions </th> -->
 
 </tr>
 </thead>
@@ -43,7 +43,8 @@ $table2 = "SELECT user_accounts.user_id, user_accounts.user_fname, user_accounts
 
 
         	$get_event = $row["user_id"];
-        	
+        	$user_activatemodal="user_activatemodal".$row['user_id'];
+            $user_deactivatemodal="user_deactivatemodal".$row['user_id'];
         	?>
 <tr>
             <td><?php echo $row['user_id'];?></td>
@@ -51,17 +52,97 @@ $table2 = "SELECT user_accounts.user_id, user_accounts.user_fname, user_accounts
             <td><?php echo $row['username'];?></td>
             <td><?php echo $row['password'];?></td>
   
-            <td> 
-     
-                <div class="dropdown">
-                <a class = "dropdown-toggle" type="button" data-toggle="dropdown" href = ""> Options
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li> <a href = "" data-toggle = "modal" data-target = "#view_sections"> View Status </a> </li>
-                     <li> <a href = "" data-toggle = "modal" data-target = "#view_sections"> View Quizzes </a> </li>                   
-                </ul>
+
+            <?php
+
+echo
+"
+    
+    <!-- Modal HTML -->
+    <div id='".$user_activatemodal."' class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title'>USER ACTIVATE </h4>
                 </div>
-            </td>
+                <div class='modal-body'>
+                 
+
+
+    <div class='form-group'>
+    ";?>
+
+
+Would you like to Activate this user?
+
+
+
+    <?php
+echo
+"    </div>
+                </div>
+                <div class='modal-footer'>
+<form method='POST' action='save_data.php'>
+                <input type='hidden' name='get_userid' value='".$row['user_id']."'>
+
+
+                    <button type='submit' name='admin_activateuser'  class='btn btn-success'>Yes</button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+";
+
+
+echo
+"
+    
+    <!-- Modal HTML -->
+    <div id='".$user_deactivatemodal."' class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title'>USER DEACTIVATE </h4>
+                </div>
+                <div class='modal-body'>
+                 
+
+
+    <div class='form-group'>
+    ";?>
+
+
+
+Would you like to Deactivate this user?
+
+
+    <?php
+echo
+"    </div>
+                </div>
+                <div class='modal-footer'>
+<form method='POST' action='save_data.php'>
+
+                                <input type='hidden' name='get_userid' value='".$row['user_id']."'>
+                    <button type='submit' name='admin_deactivateuser'  class='btn btn-success'>Yes</button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+";
+
+
+             ?>
+
+
+
+
 </tr>
 
 

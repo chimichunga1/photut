@@ -2,6 +2,12 @@
 <?php 
 
 
+
+
+
+    date_default_timezone_set("Asia/Manila");
+    $connect = mysqli_connect("localhost", "root", "miguel", "pstut_dbase");
+
   $get_avatar =mysqli_query($connect,'SELECT * From `user_accounts` WHERE `username`="'.$_SESSION['username'].'" AND `isDeleted`="0" ');
  
 
@@ -69,6 +75,9 @@ if($_SESSION["accessright"] == '3')//STUDENT
     <li> <a href = "student_lesson.php"> <span class = "fa fa-book"> </span> Lessons </a> </li>
     <li> <a href = "user_dashboard.php#!/exams"> <span class = "fa fa-pencil-alt"> </span> Exams </a> </li>
     <li> <a href = "user_dashboard.php#!/result"> <span class = "fa fa-question"> </span> Results </a> </li>
+    <li> <a href = "user_dashboard.php#!/aboutus"> <span class = "fa fa-users"> </span> About Us</a> </li>
+
+
 <!--     <li> <a href = "sections.php"> <span class = "fa fa-home"> </span> Sections </a> </li> -->
     <li class="dropdown">
   <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class = "fa fa-home"> </span> Sections <span class="caret"></span></a>
@@ -93,8 +102,8 @@ if($_SESSION["accessright"] == '3')//STUDENT
     <li class="dropdown">
   <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img src="<?php echo $get_avatar; ?> " style="height: 24px; border-radius: 5px;" >  Welcome, <?php echo $_SESSION['username']; ?> <span class="caret"></span></a>
   <ul class="dropdown-menu">
-<li> <a href = "user_dashboard.php#!/student_profile"> View Profile </a> </li>
-
+<!-- <li> <a href = "user_dashboard.php#!/student_profile"> View Profile </a> </li>
+ -->
 
   </ul>
 </li>

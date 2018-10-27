@@ -119,7 +119,6 @@ Professor :
 <th>Section ID</th>
 <th>Section Code</th>
 
-<th> Actions </th>
 
 </tr>
 </thead>
@@ -144,7 +143,7 @@ Professor :
             <td><?php echo $row['section_name'];?></td>
 
        
-     
+ <!--     
             <td> 
      
                 <div class="dropdown">
@@ -155,7 +154,7 @@ Professor :
  <li> <a href = "" data-toggle = "modal" data-target = "#test"> View Enrolled </a> </li>           
                 </ul>
                 </div>
-            </td>
+            </td> -->
 </tr>
 
 <?php

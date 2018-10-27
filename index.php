@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<?php require("link.php"); ?>
+<?php require("link.php"); 
+session_start();
+
+
+
+?>
 
 <head>
 	<title>Home</title>
@@ -28,16 +33,16 @@
             </div>
         </div>
     </nav>
-<body style="background: url('assets/index_background.jpg') no-repeat fixed center; ">
+<body style="background: url('assets/BACKGROUND.jpg') no-repeat fixed center; background-size: 1370px 800px; ">
 
 <br><br><br>
 
 <div class="col-md-offset-8 col-md-4">
 
-    <div class="card" style="width: 42rem; height:52rem;background-color: #FFFFFF; border-radius: 3px; padding: 5px;">
+    <div class="card" style="width: 37rem; height:52rem;background-color: #FFFFFF; border-radius: 3px; padding: 5px;">
      
 
-                <img class="card-img-top" src="assets/index_students.jpg" style="width: 410px; border-radius: 3px;">
+                <img class="card-img-top" src="assets/index_students.jpg" style="width: 360px; border-radius: 3px;">
      
       <div class="card-body">
        <center><h5 class="card-title" style="font-size: 38px;"><b>LOGIN HERE!</b></h5></center> 

@@ -30,7 +30,7 @@
     </nav>
 
 <br><br><br>
-<body style="background: url('assets/index_background.jpg') no-repeat fixed center; ">
+<body style="background: url('assets/BACKGROUND.jpg') no-repeat fixed center; background-size: 1370px 800px; ">
     
     
 

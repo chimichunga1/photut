@@ -48,6 +48,9 @@ app.config(function($routeProvider) {
         .when("/result", {
             templateUrl: "templates/student_result.php"
         }) 
+        .when("/aboutus", {
+            templateUrl: "templates/student_aboutus.php"
+        })
      
             .when("/scores", {
             templateUrl: "templates/teacher_result.php"
@@ -69,4 +72,8 @@ app.config(function($routeProvider) {
         .when("/scores_all_quizzes_view", {
             templateUrl: "templates/admin_result_quiz_view.php"
         })
+
+
+
+
 });

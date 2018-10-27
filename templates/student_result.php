@@ -14,7 +14,7 @@
 
 <th> Quiz Name </th>
 <th> Score </th>
-
+<th> Date Taken </th>
 </tr>
 </thead>
     <tbody>
@@ -26,7 +26,7 @@
 
 
 
-        $table2 = "select s.section_name,q.quiz_name,CONCAT(r.Score,' / ',r.Over) ";
+        $table2 = "select s.section_name,q.quiz_name,CONCAT(r.Score,' / ',r.Over),r.date_taken ";
  $table2 .="from result_table r ";
  $table2 .="inner join section_table s on s.section_id=r.Section_ID ";
  $table2 .="inner join quiz_table q on q.quiz_id = r.Quiz_ID ";
@@ -46,7 +46,9 @@
 
             <td><?php echo $row[0]?></td>
             <td><?php echo $row[1]?></td>
+
             <td><button class="btn btn-success btn-block" disabled style="cursor:default"> <strong><?php echo $row[2]?></strong></button></td>
+                        <td><?php echo $row[3]?></td>
 </tr>
 
 

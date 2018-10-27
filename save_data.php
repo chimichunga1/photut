@@ -8,7 +8,32 @@ $fname = $_POST['firstname'];
 $lname = $_POST['lastname'];
 $username = $_POST['username'];
 $password = $_POST['password'];
-$insert_user = "INSERT INTO user_accounts (`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`AccessRight`,`avatar_img`) VALUES ('".$fname."','".$lname."','".$username."','".$password."','0','0','2','assets/avatar.jpg') ";
+
+
+
+
+
+	$row=mysqli_query($connect,'SELECT * From `user_accounts` WHERE `username`="'.$username.'"');
+
+	$search= mysqli_fetch_assoc($row);
+	if(!empty($search))
+	{
+
+echo '<script language="javascript">';
+echo 'alert("This User is already saved!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/Teacher_List';</script>";	
+
+
+	}
+
+
+
+
+
+
+
+$insert_user = "INSERT INTO user_accounts (`user_fname`,`user_lname`,`username`,`password`,`isDeleted`,`isActive`,`AccessRight`,`avatar_img`) VALUES ('".$fname."','".$lname."','".$username."','".$password."','0','0','2','assets/professor.png') ";
 $run_insert_user = mysqli_query($connect,$insert_user);
 
 	$get_prof_id = "SELECT * FROM user_accounts WHERE username = '$username'";
@@ -32,6 +57,9 @@ echo '<script language="javascript">';
 echo 'alert("User Saved!")';
 echo '</script>';
 echo"<script>window.location.href='admin_dashboard.php#!/Teacher_List';</script>";	
+
+
+
 }
 
 
@@ -390,6 +418,66 @@ echo"<script>window.location.href='admin_dashboard.php#!/teacher_section';</scri
 
 }
 
+
+if(isset($_POST['admin_activateuser']))
+
+{
+
+
+
+$get_userid = $_POST['get_userid'];
+
+
+echo $get_userid;
+
+
+	$update_student = "UPDATE user_accounts SET isDeleted = '0' WHERE user_id ='$get_userid'";
+	$run_update_student = mysqli_query($connect,$update_student);
+
+/*
+echo '<script language="javascript">';
+echo 'alert("User UPDATED!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/Student_List';</script>";	
+
+
+*/
+
+
+
+
+
+}
+
+if(isset($_POST['admin_deactivateuser']))
+
+{
+
+
+
+$get_userid = $_POST['get_userid'];
+
+
+
+
+
+	$update_student = "UPDATE user_accounts SET isDeleted = '1' WHERE user_id ='$get_userid'";
+	$run_update_student = mysqli_query($connect,$update_student);
+
+
+echo '<script language="javascript">';
+echo 'alert("User UPDATED!")';
+echo '</script>';
+echo"<script>window.location.href='admin_dashboard.php#!/Student_List';</script>";	
+
+
+
+
+
+
+
+
+}
 
 
 ?>
